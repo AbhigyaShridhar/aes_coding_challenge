@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+# register your models here.
+admin.site.register(BranchMaster)
+admin.site.register(DepartmentMaster)
+admin.site.register(CompanyLedgerMaster)
+admin.site.register(ArticleMaster)
+admin.site.register(ColorMaster)
+admin.site.register(Transaction)
+admin.site.register(TransactionLineItemDetails)
+admin.site.register(InventoryItem)
