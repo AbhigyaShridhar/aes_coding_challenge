@@ -4,9 +4,6 @@ from datetime import time, datetime
 
 class TransactionSerializer(serializers.ModelSerializer):
     line_items = serializers.StringRelatedField(many=True)
-    company = serializers.StringRelatedField()
-    branch = serializers.StringRelatedField()
-    department = serializers.StringRelatedField()
 
     class Meta:
         model = Transaction
@@ -58,6 +55,9 @@ class TransactionLineItemDetailsSerializerWithInventory(serializers.ModelSeriali
 
 class TransactionDetailSerializer(serializers.ModelSerializer):
     line_items = TransactionLineItemDetailsSerializerWithInventory(many=True)
+    company = serializers.StringRelatedField()
+    branch = serializers.StringRelatedField()
+    department = serializers.StringRelatedField()
 
     class Meta:
         model = Transaction
