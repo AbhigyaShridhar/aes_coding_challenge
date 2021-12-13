@@ -46,8 +46,21 @@ class InventoryItemSerializer(serializers.ModelSerializer):
         model = InventoryItem
         fields = '__all__'
 
+class InventoryItemDetailSerializer(serializers.ModelSerializer):
+    company = serializers.StringRelatedField()
+    article = serializers.StringRelatedField()
+    colour = serializers.StringRelatedField()
+
+    class Meta:
+        model = InventoryItem
+        fields = '__all__'
+
 class TransactionLineItemDetailsSerializerWithInventory(serializers.ModelSerializer):
-    inventory_items = InventoryItemSerializer(many=True)
+    inventory_items = InventoryItemDetailSerializer(many=True)
+    company = serializers.StringRelatedField()
+    article = serializers.StringRelatedField()
+    colour = serializers.StringRelatedField()
+    transaction = serializers.StringRelatedField()
 
     class Meta:
         model=TransactionLineItemDetails
